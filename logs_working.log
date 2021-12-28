@@ -1,0 +1,145 @@
+[2021-12-27T09:50:25.506Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Redis responsed: [null,["0000000000006fdbde5954ec39acc99f7c6a0b9af7215b8f05dfb6cee2adebd4:754fdff782aab24552241aba52523e92022d26fb65e22ed6a969fc71ff5b6b42:20$
+[2021-12-27T09:50:25.506Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Prepared info basic info about payments
+[2021-12-27T09:50:25.507Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> workers = {}
+[2021-12-27T09:50:25.507Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rounds = [{"blockHash":"0000000000006fdbde5954ec39acc99f7c6a0b9af7215b8f05dfb6cee2adebd4","txHash":"754fdff782aab24552241aba52523e92022d26fb65e22ed6a969fc71f$
+[2021-12-27T09:50:25.507Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Workers count: 0 Rounds: 1
+[2021-12-27T09:50:25.507Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Checking for confirmed rounds (blocks)
+[2021-12-27T09:50:25.508Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Wokers and rounds after filtering orphans etc.
+[2021-12-27T09:50:25.508Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> workers = {}
+[2021-12-27T09:50:25.508Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rounds = [{"blockHash":"0000000000006fdbde5954ec39acc99f7c6a0b9af7215b8f05dfb6cee2adebd4","txHash":"754fdff782aab24552241aba52523e92022d26fb65e22ed6a969fc71f$
+[2021-12-27T09:50:25.508Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Getting all shares for rounds and calculating rewards for miners
+[2021-12-27T09:50:25.511Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Mapping workers into payout addresses
+[2021-12-27T09:50:25.511Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> roundShare = [object Object]
+[2021-12-27T09:50:25.512Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ.rig1
+[2021-12-27T09:50:25.512Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ.rig1 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.513Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ.rig2
+[2021-12-27T09:50:25.513Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ.rig2 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.516Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Already have balance for address RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ : 9644.81673719999113015
+[2021-12-27T09:50:25.517Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> New balance 79021.63815038000053814
+[2021-12-27T09:50:25.517Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ.Lyd1
+[2021-12-27T09:50:25.517Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ.Lyd1 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.517Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ.rig3
+[2021-12-27T09:50:25.517Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ.rig3 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.518Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Already have balance for address RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ : 79021.63815038000053814
+[2021-12-27T09:50:25.518Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> New balance 120187.47608728999960004
+[2021-12-27T09:50:25.519Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF.ravenmore
+[2021-12-27T09:50:25.519Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF.ravenmore worker have both payout address and worker, merging
+[2021-12-27T09:50:25.519Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF.ravenmore3
+[2021-12-27T09:50:25.519Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF.ravenmore3 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.519Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Already have balance for address RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF : 3341.95393096000077104
+[2021-12-27T09:50:25.520Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> New balance 8750.7839839600007501
+[2021-12-27T09:50:25.520Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF.ravenmore2
+[2021-12-27T09:50:25.520Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF.ravenmore2 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.520Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Already have balance for address RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF : 8750.7839839600007501
+[2021-12-27T09:50:25.525Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> New balance 12785.9708800100008359
+[2021-12-27T09:50:25.526Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker rFFQtMu3teLaRHjhEBbMm4FDyUaiiv1bSC.BEAST
+[2021-12-27T09:50:25.526Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rFFQtMu3teLaRHjhEBbMm4FDyUaiiv1bSC.BEAST worker have both payout address and worker, merging
+[2021-12-27T09:50:25.526Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RQNCKdageuHuZcijxCckhZNZUSrdeJ4UkQ.Rig_4083233
+[2021-12-27T09:50:25.527Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RQNCKdageuHuZcijxCckhZNZUSrdeJ4UkQ.Rig_4083233 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.527Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RRnNhTryMMU1iXfxYP4srnQzqEPFfe9qLj.Rig_4111477
+[2021-12-27T09:50:25.527Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RRnNhTryMMU1iXfxYP4srnQzqEPFfe9qLj.Rig_4111477 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.527Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker RVJw7ePqLwh3HwAPb8wXaoHrj46iZ86oiQ.rigFF3347
+[2021-12-27T09:50:25.527Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> RVJw7ePqLwh3HwAPb8wXaoHrj46iZ86oiQ.rigFF3347 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.528Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn.rigFF3347
+[2021-12-27T09:50:25.528Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn.rigFF3347 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.528Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn.Rig_3758643
+[2021-12-27T09:50:25.528Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn.Rig_3758643 worker have both payout address and worker, merging
+[2021-12-27T09:50:25.529Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Already have balance for address rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn : 5.39495907
+[2021-12-27T09:50:25.529Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> New balance 27.39126664
+[2021-12-27T09:50:25.529Z] [debug] [ravencoin] [PaymentProcessor] : PP> Merged workers into payout addresses
+[2021-12-27T09:50:25.530Z] [info] [ravencoin] [PaymentProcessor] : PP> We have found confirmed block #2078166 ready for payout
+[2021-12-27T09:50:25.531Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ
+[2021-12-27T09:50:25.537Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ
+[2021-12-27T09:50:25.542Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF
+[2021-12-27T09:50:25.545Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress rFFQtMu3teLaRHjhEBbMm4FDyUaiiv1bSC
+[2021-12-27T09:50:25.546Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress RQNCKdageuHuZcijxCckhZNZUSrdeJ4UkQ
+[2021-12-27T09:50:25.547Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress RRnNhTryMMU1iXfxYP4srnQzqEPFfe9qLj
+[2021-12-27T09:50:25.548Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress RVJw7ePqLwh3HwAPb8wXaoHrj46iZ86oiQ
+[2021-12-27T09:50:25.550Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn
+[2021-12-27T09:50:25.551Z] [debug] [ravencoin] [PaymentProcessor] : PP> Almost ready to send funds, calculating against existing balances
+[2021-12-27T09:50:25.552Z] [debug] [ravencoin] [PaymentProcessor] : PP> Trying to send
+[2021-12-27T09:50:25.552Z] [debug] [ravencoin] [PaymentProcessor] : PP> withholdPercent = 0
+[2021-12-27T09:50:25.552Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 0
+[2021-12-27T09:50:25.552Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ
+[2021-12-27T09:50:25.553Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"4447.3325408333166137062775232","roundShares":"120187.47608728999960004","totalShares":"120187.47608728999960004"}
+[2021-12-27T09:50:25.553Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 120187.47608728999960004
+[2021-12-27T09:50:25.553Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.554Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 4447.33254083331661370628
+[2021-12-27T09:50:25.556Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 4447.33254083331661370628
+[2021-12-27T09:50:25.557Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ have reached minimum payout threshold (4447.33254083331661370628 above minimum 10)
+[2021-12-27T09:50:25.557Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 4447.33254083331661370628
+[2021-12-27T09:50:25.557Z] [debug] [ravencoin] [PaymentProcessor] : PP> address = RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ
+[2021-12-27T09:50:25.558Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 4447.33254083331661370628
+[2021-12-27T09:50:25.558Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0
+[2021-12-27T09:50:25.558Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ
+[2021-12-27T09:50:25.558Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"51.212116864319253202968995712","roundShares":"1383.98804553000008566","totalShares":"1383.98804553000008566"}
+[2021-12-27T09:50:25.559Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 1383.98804553000008566
+[2021-12-27T09:50:25.559Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.559Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 51.21211686431925320297
+[2021-12-27T09:50:25.559Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ have reached minimum payout threshold (51.21211686431925320297 above minimum 10)
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 4498.54465769763586690925
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> address = RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 51.21211686431925320297
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"473.123042533289941170607876608","roundShares":"12785.9708800100008359","totalShares":"12785.9708800100008359"}
+[2021-12-27T09:50:25.560Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 12785.9708800100008359
+[2021-12-27T09:50:25.561Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.561Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 473.12304253328994117061
+[2021-12-27T09:50:25.561Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 473.12304253328994117061
+[2021-12-27T09:50:25.561Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF have reached minimum payout threshold (473.12304253328994117061 above minimum 10)
+[2021-12-27T09:50:25.561Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 4971.66770023092580807985
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> address = RKajAUVWteuGJgGK46ywWwGzs9nerCRpnF
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 473.12304253328994117061
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = rFFQtMu3teLaRHjhEBbMm4FDyUaiiv1bSC
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"0.843612947798698074554923392","roundShares":"22.79832013","totalShares":"22.79832013"}
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 22.79832013
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.562Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 0.84361294779869807455
+[2021-12-27T09:50:25.563Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 0.84361294779869807455
+[2021-12-27T09:50:25.563Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker rFFQtMu3teLaRHjhEBbMm4FDyUaiiv1bSC have not reached minimum payout threshold 10
+[2021-12-27T09:50:25.563Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0.84361294779869807455
+[2021-12-27T09:50:25.563Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 0
+[2021-12-27T09:50:25.563Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = RQNCKdageuHuZcijxCckhZNZUSrdeJ4UkQ
+[2021-12-27T09:50:25.563Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"1.260887251004692183846356864","roundShares":"34.075","totalShares":"34.075"}
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 34.075
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 1.26088725100469218385
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 1.26088725100469218385
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker RQNCKdageuHuZcijxCckhZNZUSrdeJ4UkQ have not reached minimum payout threshold 10
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 1.26088725100469218385
+[2021-12-27T09:50:25.564Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 0
+[2021-12-27T09:50:25.565Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = RRnNhTryMMU1iXfxYP4srnQzqEPFfe9qLj
+[2021-12-27T09:50:25.565Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"0.118410541547029051536183552","roundShares":"3.2","totalShares":"3.2"}
+[2021-12-27T09:50:25.565Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 3.2
+[2021-12-27T09:50:25.565Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.566Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 0.11841054154702905154
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 0.11841054154702905154
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker RRnNhTryMMU1iXfxYP4srnQzqEPFfe9qLj have not reached minimum payout threshold 10
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0.11841054154702905154
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 0
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = RVJw7ePqLwh3HwAPb8wXaoHrj46iZ86oiQ
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"0.129511529817063046883473152","roundShares":"3.5","totalShares":"3.5"}
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 3.5
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.567Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 0.12951152981706304688
+[2021-12-27T09:50:25.568Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 0.12951152981706304688
+[2021-12-27T09:50:25.568Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker RVJw7ePqLwh3HwAPb8wXaoHrj46iZ86oiQ have not reached minimum payout threshold 10
+[2021-12-27T09:50:25.568Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0.12951152981706304688
+[2021-12-27T09:50:25.568Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 0
+[2021-12-27T09:50:25.568Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn
+[2021-12-27T09:50:25.568Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"1.013567098906709662825341312","roundShares":"27.39126664","totalShares":"27.39126664"}
+[2021-12-27T09:50:25.569Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 27.39126664
+[2021-12-27T09:50:25.569Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+[2021-12-27T09:50:25.569Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 1.01356709890670966283
+[2021-12-27T09:50:25.569Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker rHKW8TBwX1ovGt2VQ6yEBukc3jpikUzevn have not reached minimum payout threshold 10
+[2021-12-27T09:50:25.570Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 1.01356709890670966283
+[2021-12-27T09:50:25.570Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 0
+[2021-12-27T09:50:25.570Z] [info] [ravencoin] [PaymentProcessor] : PP> Payments to miners: {"RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ":"4447.3325408333166137062775232","RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ":"51.212116864319253202968995712","RKa$
+[2021-12-27T09:50:25.571Z] [info] [ravencoin] [PaymentProcessor] : PP> Ok, going to pay from "" address with final amounts: {"RK7wDyvL7cNKe4ZuHj8AcRvWwBRSjmRttZ":4447.33254083,"RB2GkncFRPqkWGG9EXuLFWkVo1YFnJLMGQ":51.21211686,"RKajAUVWte$
+[2021-12-27T09:50:25.571Z] [info] [ravencoin] [PaymentProcessor] : PP> Ok, going to pay FEES from "" addresses: []
+[2021-12-27T09:50:25.604Z] [debug] [ravencoin] [PaymentProcessor] : PP> Sent out a total of 4971.66770023092580807985439552 to 3 workers
+[2021-12-27T09:50:25.607Z] [debug] [ravencoin] [PaymentProcessor] : PP> Redis have sucessfully updated after payouts
+[2021-12-27T09:50:25.607Z] [debug] [ravencoin] [PaymentProcessor] : PP> WATERFALL RESULT: PP> Redis updated successfully after payouts
+[2021-12-27T09:50:25.607Z] [debug] [ravencoin] [PaymentProcessor] : PP> FINISHED PAYMENT INTERVAL - time spent: 102 ms total, 2 ms redis, 2 ms daemon RPC
