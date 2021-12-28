@@ -588,7 +588,9 @@ function SetupForPool(poolOptions, setupFinished) {
 				var shareAmounts = {};
 				var balanceAmounts = {};
 				logger.debug('PP> totalSent = %s', totalSent);
-				for (var w in workers) {
+
+				async.each(workers, function(worker, callback) {
+					logger.debug('Entered Async.Each for worker: %s', workers);
 					logger.debug('PP> w = %s', w);
 					var worker = workers[w];
 					logger.debug('PP> worker = %s', JSON.stringify(worker));
@@ -600,64 +602,31 @@ function SetupForPool(poolOptions, setupFinished) {
 					logger.debug('PP> worker.reward = %s', worker.reward.toString(10));
 					var toSend = (worker.balance.plus(worker.reward)).multipliedBy(new BigNumber(1).minus(withholdPercent));
 					logger.debug('PP> toSend = %s', toSend.toString(10));
-					
 
-					async.each(workers, function(worker, callback) {
-						logger.debug('Entered Async.Each for worker: %s', workers);
-						getCustomPayoutAmount(workers, function(customAmount) {
+					getCustomPayoutAmount(workers, function(customAmount) {
 
-							logger.debug('Custom Amount for worker: %s Amount: %s', w, customAmount);
-							
-							var customPayoutAmount = new BigNumber(customAmount);
-						  
-							if (toSend.isGreaterThanOrEqualTo(minPayment)) {
+						logger.debug('Custom Amount for worker: %s Amount: %s', w, customAmount);
 
-								if (toSend.isGreaterThanOrEqualTo(customPayoutAmount) && !customPayoutAmount.isZero()) {
-									//Amount Sent is higher than the custom amount set for this worker. Pay it out.
-									logger.debug('PP> Worker %s have their custom minimum payout amount: (%s above minimum %s)', w, toSend.toString(10), customPayoutAmount.toString(10));
-									totalSent = totalSent.plus(toSend);              
-									logger.debug('PP> totalSent = %s', totalSent.toString(10));
-									var address = worker.address = (worker.address || getProperAddress(w));              
-									logger.debug('PP> address = %s', address);
-									worker.sent = addressAmounts[address] = toSend;
-									logger.debug('PP> worker.sent = %s', worker.sent.toString(10));
-									worker.balanceChange = BigNumber.min(worker.balance, worker.sent).multipliedBy(new BigNumber(-1));
-									logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
-		
-								} else if (toSend.isLessThan(customPayoutAmount) && !customPayoutAmount.isZero()){
-									//Amount is higher than the minimum payment but not higher than the custom amount set for this worker. Add it to their balance.
-									//Did not meet the pool minimum, no custom amount. Add to balance.
-									logger.debug('PP> Worker %s have not reached minimum payout from their custom set payout amount threshold %s', w, customPayoutAmount.toString(10));
-									worker.balanceChange = BigNumber.max(toSend.minus(worker.balance), new BigNumber(0));
-									logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
-									worker.sent = new BigNumber(0);
-									logger.debug('PP> worker.sent = %s', worker.sent.toString(10));
-									if (worker.balanceChange > 0) {
-										if (balanceAmounts[address] != null && balanceAmounts[address].isGreaterThan(0)) {
-											balanceAmounts[address] = balanceAmounts[address].plus(worker.balanceChange);
-										} else {
-											balanceAmounts[address] = worker.balanceChange;
-										}
-									}
-								}
-								
-								if (toSend.isGreaterThanOrEqualTo(minPayment) && customPayoutAmount.isZero()) {
-									//Meets the pool minimum payment, no custom amount. Pay out based on the pool minimum payment.
-									logger.debug('PP> Worker %s have reached minimum payout threshold (%s above minimum %s)', w, toSend.toString(10), minPayment.toString(10));
-									totalSent = totalSent.plus(toSend);              
-									logger.debug('PP> totalSent = %s', totalSent.toString(10));
-									var address = worker.address = (worker.address || getProperAddress(w));              
-									logger.debug('PP> address = %s', address);
-									worker.sent = addressAmounts[address] = toSend;
-									logger.debug('PP> worker.sent = %s', worker.sent.toString(10));
-									worker.balanceChange = BigNumber.min(worker.balance, worker.sent).multipliedBy(new BigNumber(-1));
-									logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
-								}
-		
-								
-							} else {
+						var customPayoutAmount = new BigNumber(customAmount);
+
+						if (toSend.isGreaterThanOrEqualTo(minPayment)) {
+
+							if (toSend.isGreaterThanOrEqualTo(customPayoutAmount) && !customPayoutAmount.isZero()) {
+								//Amount Sent is higher than the custom amount set for this worker. Pay it out.
+								logger.debug('PP> Worker %s have their custom minimum payout amount: (%s above minimum %s)', w, toSend.toString(10), customPayoutAmount.toString(10));
+								totalSent = totalSent.plus(toSend);              
+								logger.debug('PP> totalSent = %s', totalSent.toString(10));
+								var address = worker.address = (worker.address || getProperAddress(w));              
+								logger.debug('PP> address = %s', address);
+								worker.sent = addressAmounts[address] = toSend;
+								logger.debug('PP> worker.sent = %s', worker.sent.toString(10));
+								worker.balanceChange = BigNumber.min(worker.balance, worker.sent).multipliedBy(new BigNumber(-1));
+								logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
+
+							} else if (toSend.isLessThan(customPayoutAmount) && !customPayoutAmount.isZero()){
+								//Amount is higher than the minimum payment but not higher than the custom amount set for this worker. Add it to their balance.
 								//Did not meet the pool minimum, no custom amount. Add to balance.
-								logger.debug('PP> Worker %s have not reached minimum payout threshold %s', w, minPayment.toString(10));
+								logger.debug('PP> Worker %s have not reached minimum payout from their custom set payout amount threshold %s', w, customPayoutAmount.toString(10));
 								worker.balanceChange = BigNumber.max(toSend.minus(worker.balance), new BigNumber(0));
 								logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
 								worker.sent = new BigNumber(0);
@@ -670,73 +639,104 @@ function SetupForPool(poolOptions, setupFinished) {
 									}
 								}
 							}
-						  callback();
-						});
-					})
+
+							if (toSend.isGreaterThanOrEqualTo(minPayment) && customPayoutAmount.isZero()) {
+								//Meets the pool minimum payment, no custom amount. Pay out based on the pool minimum payment.
+								logger.debug('PP> Worker %s have reached minimum payout threshold (%s above minimum %s)', w, toSend.toString(10), minPayment.toString(10));
+								totalSent = totalSent.plus(toSend);              
+								logger.debug('PP> totalSent = %s', totalSent.toString(10));
+								var address = worker.address = (worker.address || getProperAddress(w));              
+								logger.debug('PP> address = %s', address);
+								worker.sent = addressAmounts[address] = toSend;
+								logger.debug('PP> worker.sent = %s', worker.sent.toString(10));
+								worker.balanceChange = BigNumber.min(worker.balance, worker.sent).multipliedBy(new BigNumber(-1));
+								logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
+							}
 
 
-				if (worker.totalShares && worker.totalShares.isGreaterThan(0)) {
-					if (shareAmounts[address] && shareAmounts[address].isGreaterThan(0)) {
-						shareAmounts[address] = shareAmounts[address].plus(worker.totalShares);
-					} else {
-						shareAmounts[address] = worker.totalShares;
+						} else {
+							//Did not meet the pool minimum, no custom amount. Add to balance.
+							logger.debug('PP> Worker %s have not reached minimum payout threshold %s', w, minPayment.toString(10));
+							worker.balanceChange = BigNumber.max(toSend.minus(worker.balance), new BigNumber(0));
+							logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
+							worker.sent = new BigNumber(0);
+							logger.debug('PP> worker.sent = %s', worker.sent.toString(10));
+							if (worker.balanceChange > 0) {
+								if (balanceAmounts[address] != null && balanceAmounts[address].isGreaterThan(0)) {
+									balanceAmounts[address] = balanceAmounts[address].plus(worker.balanceChange);
+								} else {
+									balanceAmounts[address] = worker.balanceChange;
+								}
+							}
+						}
+						if (worker.totalShares && worker.totalShares.isGreaterThan(0)) {
+							if (shareAmounts[address] && shareAmounts[address].isGreaterThan(0)) {
+								shareAmounts[address] = shareAmounts[address].plus(worker.totalShares);
+							} else {
+								shareAmounts[address] = worker.totalShares;
+							}
+						}
+					  	callback();
+					});
+				})
+				.then(() => {
+					if (Object.keys(addressAmounts).length === 0) {
+						logger.info('PP> No workers was chosen for paying out');
+						callback(null, workers, rounds, []);
+						return;
 					}
-				}
-				
-			}
-			if (Object.keys(addressAmounts).length === 0) {
-				logger.info('PP> No workers was chosen for paying out');
-				callback(null, workers, rounds, []);
-				return;
-			}
-			logger.info('PP> Payments to miners: %s', JSON.stringify(addressAmounts));
-			var feeAddresses = [];
-			var rewardAddresses = poolOptions.rewardRecipients;
-			Object.keys(addressAmounts).forEach((address) => {
-				addressAmounts[address] = new BigNumber(addressAmounts[address].toFixed(coinPrecision, 1)).toNumber();
-			});
-			logger.info('PP> Ok, going to pay from "%s" address with final amounts: %s', addressAccount, JSON.stringify(addressAmounts));
-			logger.info('PP> Ok, going to pay FEES from "%s" addresses: %s', feeAddresses, JSON.stringify(feeAddresses));
-			daemon.cmd('sendmany', [addressAccount || '', addressAmounts, 1, ""], function(result) {
-				if (result.error && result.error.code === -6) {
-					var higherPercent = withholdPercent.plus(new BigNumber(0.01));
-					logger.warn('PP> Not enough funds to cover the tx fees for sending out payments, decreasing rewards by %s% and retrying');
-					trySend(higherPercent);
-				} else if (result.error) {
-					logger.error('PP> Error trying to send payments with RPC sendmany %s', JSON.stringify(result.error));
-					callback('PP> Error trying to send payments with RPC sendmany %s', JSON.stringify(result.error));
-				} else {
-					var txid = null;
-					if (result.response) {
-						txid = result.response;
-					}
-					if (!txid || txid == null) {
-						logger.warn('PP> We didn\'t get a txid from \'sendmany\'... This could be a problem! Tried parsing: %s', JSON.stringify(result));
-					}
-					logger.debug('PP> Sent out a total of ' + (totalSent) + ' to ' + Object.keys(addressAmounts).length + ' workers');
-					if (withholdPercent.isGreaterThan(new BigNumber(0))) {
-						logger.warn('PP> Had to withhold ' + (withholdPercent * new BigNumber(100)).toString(10) + '% of reward from miners to cover transaction fees. ' + 'Fund pool wallet with coins to prevent this from happening');
-					}
-					var paymentBlocks = rounds.filter(r => r.category == 'generate').map(r => parseInt(r.height));
-					var paymentBlockID = rounds.filter(r => r.category == 'generate').map(r => r.blockHash);
-					var paymentsUpdate = [];
-					var paymentsData = {
-						time: Date.now(),
-						txid: txid,
-						txidd: txid,
-						shares: totalShares,
-						paid: totalSent,
-						miners: Object.keys(addressAmounts).length,
-						blocks: paymentBlocks,
-						blkid: paymentBlockID,
-						amounts: addressAmounts,
-						balances: balanceAmounts,
-						work: shareAmounts
-					};
-					paymentsUpdate.push(['zadd', poolOptions.coin.name + ':payments', Date.now(), JSON.stringify(paymentsData)]);
-					callback(null, workers, rounds, paymentsUpdate);
-				}
-			}, true, true);
+					logger.info('PP> Payments to miners: %s', JSON.stringify(addressAmounts));
+					var feeAddresses = [];
+					var rewardAddresses = poolOptions.rewardRecipients;
+					Object.keys(addressAmounts).forEach((address) => {
+						addressAmounts[address] = new BigNumber(addressAmounts[address].toFixed(coinPrecision, 1)).toNumber();
+					});
+					logger.info('PP> Ok, going to pay from "%s" address with final amounts: %s', addressAccount, JSON.stringify(addressAmounts));
+					logger.info('PP> Ok, going to pay FEES from "%s" addresses: %s', feeAddresses, JSON.stringify(feeAddresses));
+					daemon.cmd('sendmany', [addressAccount || '', addressAmounts, 1, ""], function(result) {
+						if (result.error && result.error.code === -6) {
+							var higherPercent = withholdPercent.plus(new BigNumber(0.01));
+							logger.warn('PP> Not enough funds to cover the tx fees for sending out payments, decreasing rewards by %s% and retrying');
+							trySend(higherPercent);
+						} else if (result.error) {
+							logger.error('PP> Error trying to send payments with RPC sendmany %s', JSON.stringify(result.error));
+							callback('PP> Error trying to send payments with RPC sendmany %s', JSON.stringify(result.error));
+						} else {
+							var txid = null;
+							if (result.response) {
+								txid = result.response;
+							}
+							if (!txid || txid == null) {
+								logger.warn('PP> We didn\'t get a txid from \'sendmany\'... This could be a problem! Tried parsing: %s', JSON.stringify(result));
+							}
+							logger.debug('PP> Sent out a total of ' + (totalSent) + ' to ' + Object.keys(addressAmounts).length + ' workers');
+							if (withholdPercent.isGreaterThan(new BigNumber(0))) {
+								logger.warn('PP> Had to withhold ' + (withholdPercent * new BigNumber(100)).toString(10) + '% of reward from miners to cover transaction fees. ' + 'Fund pool wallet with coins to prevent this from happening');
+							}
+							var paymentBlocks = rounds.filter(r => r.category == 'generate').map(r => parseInt(r.height));
+							var paymentBlockID = rounds.filter(r => r.category == 'generate').map(r => r.blockHash);
+							var paymentsUpdate = [];
+							var paymentsData = {
+								time: Date.now(),
+								txid: txid,
+								txidd: txid,
+								shares: totalShares,
+								paid: totalSent,
+								miners: Object.keys(addressAmounts).length,
+								blocks: paymentBlocks,
+								blkid: paymentBlockID,
+								amounts: addressAmounts,
+								balances: balanceAmounts,
+								work: shareAmounts
+							};
+							paymentsUpdate.push(['zadd', poolOptions.coin.name + ':payments', Date.now(), JSON.stringify(paymentsData)]);
+							callback(null, workers, rounds, paymentsUpdate);
+						}
+					}, true, true);
+					
+				}) // end of then
+
+			
 		};
 		trySend(new BigNumber(0));
 	},
