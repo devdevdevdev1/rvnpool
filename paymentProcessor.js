@@ -590,9 +590,10 @@ function SetupForPool(poolOptions, setupFinished) {
 				logger.debug('PP> totalSent = %s', totalSent);
 
 				async.each(workers, function(worker, callback) {
-					logger.debug('Entered Async.Each for worker: %s', workers);
-					logger.debug('PP> w = %s', w);
-					var worker = workers[w];
+					logger.debug('Workers Passed through: %s', workers.toString());
+					logger.debug('Entered Async.Each for worker: %s', worker);
+					logger.debug('PP> w = %s', worker);
+					
 					logger.debug('PP> worker = %s', JSON.stringify(worker));
 					totalShares = totalShares.plus(worker.totalShares || new BigNumber(0));            
 					logger.debug('PP> worker.totalShares = %s', (worker.totalShares || new BigNumber(0)).toString(10));
