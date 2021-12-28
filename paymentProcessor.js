@@ -589,7 +589,7 @@ function SetupForPool(poolOptions, setupFinished) {
 				var balanceAmounts = {};
 				logger.debug('PP> totalSent = %s', totalSent);
 
-				async.each(workers, function(worker, callback) {
+				async.each(workers, function(worker, each_callback) {
 					logger.debug('Workers Passed through: %s', workers.toString());
 					logger.debug('Entered Async.Each for worker: %s', worker);
 					logger.debug('PP> w = %s', worker);
@@ -677,10 +677,14 @@ function SetupForPool(poolOptions, setupFinished) {
 								shareAmounts[address] = worker.totalShares;
 							}
 						}
-					  	callback();
+					  	each_callback();
 					});
-				})
-				.then(() => {
+				}, (error) => {
+					if (error) {
+						console.error(error);
+						callback(error);
+						return;
+					}
 					if (Object.keys(addressAmounts).length === 0) {
 						logger.info('PP> No workers was chosen for paying out');
 						callback(null, workers, rounds, []);
