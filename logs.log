@@ -1,49 +1,48 @@
-0|pool  | [2021-12-28T05:19:02.433Z] [info] [system] [Website] : WEBSITE> Website started on 0.0.0.0:80
-0|pool  | [2021-12-28T05:19:02.462Z] [debug] [ravencoin] [PaymentProcessor] : PP>WARN> getbalance RPC reply is being tested for validity
-0|pool  | [2021-12-28T05:19:02.463Z] [debug] [ravencoin] [PaymentProcessor] : PP>WARN> daemon wallet balance >= 0.0 PASSED - JSON: 5975.1911445
-0|pool  | [2021-12-28T05:19:02.465Z] [debug] [system] [PaymentProcessing] : PP> Payment processor initialized. Setup results true
-0|pool  | [2021-12-28T05:19:02.467Z] [info] [system] [PaymentProcessing] : PP> Payment processing setup to run every 300 second(s) with daemon (user1@127.0.0.1:18766) and redis (127.0.0.1:6379)
-0|pool  | [2021-12-28T05:19:02.568Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL START - Calling redis for array of rounds
-0|pool  | [2021-12-28T05:19:02.571Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Redis responsed: [null,["00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3:a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa:1031730"]]
-0|pool  | [2021-12-28T05:19:02.571Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Prepared info basic info about payments
-0|pool  | [2021-12-28T05:19:02.572Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> workers = {}
-0|pool  | [2021-12-28T05:19:02.572Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rounds = [{"blockHash":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3","txHash":"a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa","height":"1031730","duplicate":false,"serialized":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3:a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa:1031730"}]
-0|pool  | [2021-12-28T05:19:02.572Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Workers count: 0 Rounds: 1
-0|pool  | [2021-12-28T05:19:02.573Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Checking for confirmed rounds (blocks)
-0|pool  | [2021-12-28T05:19:02.576Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Wokers and rounds after filtering orphans etc.
-0|pool  | [2021-12-28T05:19:02.576Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> workers = {}
-0|pool  | [2021-12-28T05:19:02.577Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rounds = [{"blockHash":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3","txHash":"a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa","height":"1031730","duplicate":false,"serialized":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3:a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa:1031730","confirmations":397,"category":"generate","reward":4975}]
-0|pool  | [2021-12-28T05:19:02.578Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Getting all shares for rounds and calculating rewards for miners
-0|pool  | [2021-12-28T05:19:02.580Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Mapping workers into payout addresses
-0|pool  | [2021-12-28T05:19:02.581Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> roundShare = [object Object]
-0|pool  | [2021-12-28T05:19:02.581Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker mwXb53tmwsyytGY1Bc3URUmd6zKKYDWtTp.rig1
-0|pool  | [2021-12-28T05:19:02.581Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> mwXb53tmwsyytGY1Bc3URUmd6zKKYDWtTp.rig1 worker have both payout address and worker, merging
-0|pool  | [2021-12-28T05:19:02.582Z] [debug] [ravencoin] [PaymentProcessor] : PP> Merged workers into payout addresses
-0|pool  | [2021-12-28T05:19:02.583Z] [info] [ravencoin] [PaymentProcessor] : PP> We have found confirmed block #1031730 ready for payout
-0|pool  | [2021-12-28T05:19:02.586Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress mwXb53tmwsyytGY1Bc3URUmd6zKKYDWtTp
-0|pool  | [2021-12-28T05:19:02.588Z] [debug] [ravencoin] [PaymentProcessor] : PP> Almost ready to send funds, calculating against existing balances
-0|pool  | [2021-12-28T05:19:02.589Z] [debug] [ravencoin] [PaymentProcessor] : PP> Trying to send
-0|pool  | [2021-12-28T05:19:02.589Z] [debug] [ravencoin] [PaymentProcessor] : PP> withholdPercent = 0
-0|pool  | [2021-12-28T05:19:02.589Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 0
-0|pool  | [2021-12-28T05:19:02.590Z] [debug] [ravencoin] [PaymentProcessor] : Workers Passed through: [object Object]
-0|pool  | [2021-12-28T05:19:02.591Z] [debug] [ravencoin] [PaymentProcessor] : Entered Async.Each for worker: [object Object]
-0|pool  | [2021-12-28T05:19:02.591Z] [debug] [ravencoin] [PaymentProcessor] : PP> w = [object Object]
-0|pool  | [2021-12-28T05:19:02.591Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"4975","roundShares":"0.2","totalShares":"0.2"}
-0|pool  | [2021-12-28T05:19:02.592Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 0.2
-0|pool  | [2021-12-28T05:19:02.593Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
-0|pool  | [2021-12-28T05:19:02.593Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 4975
-0|pool  | [2021-12-28T05:19:02.594Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 4975
-0|pool  | /home/kawwpool/Ravencoin-Pool/libs/paymentProcessor.js:680
-0|pool  |                               .then(() => {
-0|pool  |                               ^
-0|pool  | TypeError: Cannot read property 'then' of undefined
-0|pool  |     at trySend (/home/kawwpool/Ravencoin-Pool/libs/paymentProcessor.js:680:5)
-0|pool  |     at /home/kawwpool/Ravencoin-Pool/libs/paymentProcessor.js:739:3
-0|pool  |     at nextTask (/home/kawwpool/Ravencoin-Pool/node_modules/async/dist/async.js:5324:14)
-0|pool  |     at next (/home/kawwpool/Ravencoin-Pool/node_modules/async/dist/async.js:5331:9)
-0|pool  |     at /home/kawwpool/Ravencoin-Pool/node_modules/async/dist/async.js:969:16
-0|pool  |     at Multi.callback (/home/kawwpool/Ravencoin-Pool/libs/paymentProcessor.js:573:5)
-0|pool  |     at multi_callback (/home/kawwpool/Ravencoin-Pool/node_modules/redis/lib/multi.js:89:14)
-0|pool  |     at Command.callback (/home/kawwpool/Ravencoin-Pool/node_modules/redis/lib/multi.js:116:9)
-0|pool  |     at normal_reply (/home/kawwpool/Ravencoin-Pool/node_modules/redis/index.js:726:21)
-0|pool  |     at RedisClient.return_reply (/home/kawwpool/Ravencoin-Pool/node_modules/redis/index.js:824:9)
+0|pool  | [2021-12-28T06:44:27.751Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL START - Calling redis for array of rounds
+0|pool  | [2021-12-28T06:44:27.755Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Redis responsed: [null,["00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3:a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa:1031730"]]
+0|pool  | [2021-12-28T06:44:27.755Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Prepared info basic info about payments
+0|pool  | [2021-12-28T06:44:27.755Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> workers = {}
+0|pool  | [2021-12-28T06:44:27.756Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rounds = [{"blockHash":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3","txHash":"a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa","height":"1031730","duplicate":false,"serialized":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3:a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa:1031730"}]
+0|pool  | [2021-12-28T06:44:27.756Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Workers count: 0 Rounds: 1
+0|pool  | [2021-12-28T06:44:27.756Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Checking for confirmed rounds (blocks)
+0|pool  | [2021-12-28T06:44:27.759Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Wokers and rounds after filtering orphans etc.
+0|pool  | [2021-12-28T06:44:27.760Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> workers = {}
+0|pool  | [2021-12-28T06:44:27.760Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> rounds = [{"blockHash":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3","txHash":"a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa","height":"1031730","duplicate":false,"serialized":"00000001c028f1803a1f9197425ef4a589b6c4677f7c9faf0d9f7f3ada569bf3:a0b9e3012b125c7b9dc3c6fb505c713b695f65bed6f69fe15ebb347bf009c2fa:1031730","confirmations":495,"category":"generate","reward":4975}]
+0|pool  | [2021-12-28T06:44:27.761Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Getting all shares for rounds and calculating rewards for miners
+0|pool  | [2021-12-28T06:44:27.762Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Mapping workers into payout addresses
+0|pool  | [2021-12-28T06:44:27.763Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> roundShare = [object Object]
+0|pool  | [2021-12-28T06:44:27.763Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> Iterating worker mwXb53tmwsyytGY1Bc3URUmd6zKKYDWtTp.rig1
+0|pool  | [2021-12-28T06:44:27.764Z] [debug] [ravencoin] [PaymentProcessor] : WATERFALL> mwXb53tmwsyytGY1Bc3URUmd6zKKYDWtTp.rig1 worker have both payout address and worker, merging
+0|pool  | [2021-12-28T06:44:27.764Z] [debug] [ravencoin] [PaymentProcessor] : PP> Merged workers into payout addresses
+0|pool  | [2021-12-28T06:44:27.765Z] [info] [ravencoin] [PaymentProcessor] : PP> We have found confirmed block #1031730 ready for payout
+0|pool  | [2021-12-28T06:44:27.770Z] [debug] [ravencoin] [PaymentProcessor] : PP> Calculating reward for workerAddress mwXb53tmwsyytGY1Bc3URUmd6zKKYDWtTp
+0|pool  | [2021-12-28T06:44:27.772Z] [debug] [ravencoin] [PaymentProcessor] : PP> Almost ready to send funds, calculating against existing balances
+0|pool  | [2021-12-28T06:44:27.774Z] [debug] [ravencoin] [PaymentProcessor] : PP> Trying to send
+0|pool  | [2021-12-28T06:44:27.774Z] [debug] [ravencoin] [PaymentProcessor] : PP> withholdPercent = 0
+0|pool  | [2021-12-28T06:44:27.775Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 0
+0|pool  | [2021-12-28T06:44:27.777Z] [debug] [ravencoin] [PaymentProcessor] : Workers Passed through: [object Object]
+0|pool  | [2021-12-28T06:44:27.778Z] [debug] [ravencoin] [PaymentProcessor] : Entered Async.Each for worker: [object Object]
+0|pool  | [2021-12-28T06:44:27.778Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = [object Object]
+0|pool  | [2021-12-28T06:44:27.778Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker = {"reward":"4975","roundShares":"0.2","totalShares":"0.2"}
+0|pool  | [2021-12-28T06:44:27.779Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.totalShares = 0.2
+0|pool  | [2021-12-28T06:44:27.780Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balance = 0
+0|pool  | [2021-12-28T06:44:27.780Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.reward = 4975
+0|pool  | [2021-12-28T06:44:27.781Z] [debug] [ravencoin] [PaymentProcessor] : PP> toSend = 4975
+0|pool  | node_redis: Deprecated: The HGET command contains a argument of type Object.
+0|pool  | This is converted to "[object Object]" by using .toString() now and will return an error from v.3.0 on.
+0|pool  | Please handle this in your code to make sure everything works as you intended it to.
+0|pool  | [2021-12-28T06:44:27.788Z] [debug] [getCustomPayoutAmount] [PaymentProcessing] : Got custom payout amount for worker: [object Object], Payout Amount: null
+0|pool  | [2021-12-28T06:44:27.789Z] [debug] [getCustomPayoutAmount] [PaymentProcessing] : Else lower than: 0
+0|pool  | [2021-12-28T06:44:27.789Z] [debug] [ravencoin] [PaymentProcessor] : Custom Amount for worker: [object Object] Amount: 0
+0|pool  | [2021-12-28T06:44:27.790Z] [debug] [ravencoin] [PaymentProcessor] : PP> Worker [object Object] have reached minimum payout threshold (4975 above minimum 10)
+0|pool  | [2021-12-28T06:44:27.790Z] [debug] [ravencoin] [PaymentProcessor] : PP> totalSent = 4975
+0|pool  | [2021-12-28T06:44:27.790Z] [debug] [ravencoin] [PaymentProcessor] : PP> address = [object Object]
+0|pool  | [2021-12-28T06:44:27.791Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.sent = 4975
+0|pool  | [2021-12-28T06:44:27.791Z] [debug] [ravencoin] [PaymentProcessor] : PP> worker.balanceChange = 0
+0|pool  | [2021-12-28T06:44:27.792Z] [info] [ravencoin] [PaymentProcessor] : PP> Payments to miners: {"[object Object]":"4975"}
+0|pool  | [2021-12-28T06:44:27.793Z] [info] [ravencoin] [PaymentProcessor] : PP> Ok, going to pay from "" address with final amounts: {"[object Object]":4975}
+0|pool  | [2021-12-28T06:44:27.793Z] [info] [ravencoin] [PaymentProcessor] : PP> Ok, going to pay FEES from "" addresses: []
+0|pool  | [2021-12-28T06:44:27.796Z] [error] [ravencoin] [PaymentProcessor] : PP> Error trying to send payments with RPC sendmany {"code":-5,"message":"Invalid Raven address: [object Object]"}
+0|pool  | [2021-12-28T06:44:27.796Z] [debug] [ravencoin] [PaymentProcessor] : PP> WATERFALL RESULT: PP> Error trying to send payments with RPC sendmany %s
+0|pool  | [2021-12-28T06:44:27.796Z] [debug] [ravencoin] [PaymentProcessor] : PP> FINISHED PAYMENT INTERVAL - time spent: 45 ms total, 4 ms redis, 7 ms daemon RPC
+0|pool  | [2021-12-28T06:44:28.398Z] [info] [ravencoin] [Pool [:1]] : Block notification via RPC polling
