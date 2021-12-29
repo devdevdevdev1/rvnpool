@@ -114,11 +114,10 @@ function getTotalFees(coin) {
 	return total;   
 };
 
+
 getCustomPayoutAmount = function(worker, cback) {
     var logger = loggerFactory.getLogger('PaymentProcessing', 'getCustomPayoutAmount');
-	//Do the redis lookup here since all this code is async and calling a function could result in payment happening before the value is there from redis
 	var redisClient = redis.createClient(portalConfig.redis.port, portalConfig.redis.host);			
-
 	var payoutAmount = 0;
 
     redisClient.hget('ravencoin:workers:customPayoutAmount', worker,  function(error, result) {
@@ -137,9 +136,9 @@ getCustomPayoutAmount = function(worker, cback) {
 		}	
 
         cback(payoutAmount);   
-    });
-     
+    });  
 };
+
 
 function SetupForPool(poolOptions, setupFinished) {
 	var coin = poolOptions.coin.name;
@@ -589,11 +588,9 @@ function SetupForPool(poolOptions, setupFinished) {
 				var balanceAmounts = {};
 				logger.debug('PP> totalSent = %s', totalSent);
 
-				async.each(workers, function(worker, each_callback) {
-					logger.debug('Workers Passed through: %s', workers.toString());
-					logger.debug('Entered Async.Each for worker: %s', worker);
-					logger.debug('PP> w = %s', worker);
-					
+				 
+				async.eachOf(workers, function(worker, w, each_callback) {
+					logger.debug('PP> w = %s', w);
 					logger.debug('PP> worker = %s', JSON.stringify(worker));
 					totalShares = totalShares.plus(worker.totalShares || new BigNumber(0));            
 					logger.debug('PP> worker.totalShares = %s', (worker.totalShares || new BigNumber(0)).toString(10));
@@ -604,14 +601,12 @@ function SetupForPool(poolOptions, setupFinished) {
 					var toSend = (worker.balance.plus(worker.reward)).multipliedBy(new BigNumber(1).minus(withholdPercent));
 					logger.debug('PP> toSend = %s', toSend.toString(10));
 
-					getCustomPayoutAmount(workers, function(customAmount) {
+					getCustomPayoutAmount(w, function(customAmount) {
 
 						logger.debug('Custom Amount for worker: %s Amount: %s', w, customAmount);
-
 						var customPayoutAmount = new BigNumber(customAmount);
 
 						if (toSend.isGreaterThanOrEqualTo(minPayment)) {
-
 							if (toSend.isGreaterThanOrEqualTo(customPayoutAmount) && !customPayoutAmount.isZero()) {
 								//Amount Sent is higher than the custom amount set for this worker. Pay it out.
 								logger.debug('PP> Worker %s have their custom minimum payout amount: (%s above minimum %s)', w, toSend.toString(10), customPayoutAmount.toString(10));
@@ -653,8 +648,6 @@ function SetupForPool(poolOptions, setupFinished) {
 								worker.balanceChange = BigNumber.min(worker.balance, worker.sent).multipliedBy(new BigNumber(-1));
 								logger.debug('PP> worker.balanceChange = %s', worker.balanceChange.toString(10));
 							}
-
-
 						} else {
 							//Did not meet the pool minimum, no custom amount. Add to balance.
 							logger.debug('PP> Worker %s have not reached minimum payout threshold %s', w, minPayment.toString(10));
@@ -685,6 +678,7 @@ function SetupForPool(poolOptions, setupFinished) {
 						callback(error);
 						return;
 					}
+					
 					if (Object.keys(addressAmounts).length === 0) {
 						logger.info('PP> No workers was chosen for paying out');
 						callback(null, workers, rounds, []);
