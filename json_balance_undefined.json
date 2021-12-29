@@ -1,0 +1,24 @@
+{
+time: 1640749808794,
+txid: "a6b5b8a29ecf56592b030b23eb5b39e42beae3dac91d802013602b2995ec9d41",
+txidd: "a6b5b8a29ecf56592b030b23eb5b39e42beae3dac91d802013602b2995ec9d41",
+shares: "0.6",
+paid: "3316.66666666666666668325",
+miners: 1,
+blocks: [
+1033365
+],
+blkid: [
+"000000023cf166dd06894992218e05f5253929c0b66c105b3ca29c383434e5ee"
+],
+amounts: {
+mumtQ8UnS1YdZupDK1FvFnvfzsQ6XWKGgW: 3316.66666666
+},
+balances: {
+undefined: "1658.33333333333333331675"
+},
+work: {
+undefined: "0.2",
+mumtQ8UnS1YdZupDK1FvFnvfzsQ6XWKGgW: "0.4"
+}
+}
